@@ -1,5 +1,5 @@
 {
-  "name": "header",
+  "name": "tisco-header",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,7 +12,6 @@
   "private": true,
   "dependencies": {
     "jquery": "^3.1.0",
-    "pug": "^2.0.0-beta4",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
@@ -24,8 +23,10 @@
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "node-sass": "^3.8.0",
+    "pug": "^2.0.0-beta4",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1"
-  }
+  },
+  "private": true
 }
