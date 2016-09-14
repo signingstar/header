@@ -1,6 +1,6 @@
 const Config = require("../config/top_nav_config.json");
 
-const presenter = ({cookies, topNav}, page) => {
+const presenter = ({cookies={}, topNav = true}, page) => {
   let isLogged = cookies['isLogged'];
 
   if(cookies) {
