@@ -1,13 +1,17 @@
-import * as Config from "./helpers/config";
+const Config = require("../config/top_nav_config.json");
 
-export let {origConfig, customConfig, isInInnerConfig} = Config;
-
-export const headerPresenter = ({cookies}) => {
+const presenter = ({cookies, topNav}, page) => {
   let isLogged = cookies['isLogged'];
 
-  if(isLogged) {
-    return {isLogged};
+  if(cookies) {
+    page.set({isLogged});
   }
 
-  return {};
+  if(topNav) {
+    page.set({origConfig: Config});
+  } else {
+    page.set({origConfig: []});
+  }
 }
+
+export default presenter;
