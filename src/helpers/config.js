@@ -1,23 +1,10 @@
 import { each, pick, omit } from "underscore";
-import "core-js/shim";
 
-import TopNavConfig from "./config/top_nav_config";
-
-export const origConfig: MenuElement[] = TopNavConfig;
-
-interface MenuElement {
-  id?: string;
-  displayText?: string;
-  url?: string;
-  anchorId?: string;
-  subElements?: MenuElement[];
-  display?: boolean;
-  internal_url?: string;
-};
+export const origConfig = require("../../../config/top_nav_config.json");
 
 let flattenConfig = () => {
-  let navHash:any = {};
-  let flatten = function(nestedConfig:MenuElement[]) {
+  let navHash = {};
+  let flatten = function(nestedConfig) {
     each(nestedConfig, function(elem) {
       let subElem = elem.subElements;
 
@@ -36,19 +23,18 @@ let flattenConfig = () => {
 
 const flatConfig = flattenConfig();
 
-export const customConfig = function(id:string, ...fields:string[]) {
+export const customConfig = function(id, ...fields) {
   if(fields.length === 0) {
     return flatConfig[id];
   }
   return pick(flatConfig[id], ...fields);
 };
 
-export const isInInnerConfig = (category: string, id: string) => {
-  console.log(`origConfig:${JSON.stringify(origConfig)}`);
-  return origConfig.find((config: MenuElement) => {
+export const isInInnerConfig = (category, id) => {
+  return origConfig.find((config) => {
     if(category === config.id) {
       const subElements = config.subElements;
-      const actualId = config.subElements.find((config: MenuElement) => {
+      const actualId = config.subElements.find((config) => {
         return config.id === id;
       });
 
