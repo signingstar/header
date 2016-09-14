@@ -1,7 +1,7 @@
 import $ from "jquery";
 import addReferrer from "./session_navigation";
 
-export class MainHeader {
+class MainHeader {
   constructor() {
     this.$rootElem = $('.c-header');
     this.$promotionalHeader = this.$rootElem.find('.promotional-header');
@@ -62,3 +62,5 @@ header.attachHoverEventOnMenuItems();
 if($('header .promotional-header').length) {
   header.slidePromotionalHeader();
 }
+
+export default MainHeader;

@@ -1,1 +1,1 @@
-require('./lib/frontend/main');
+module.exports = require('./lib/frontend/main.js');
