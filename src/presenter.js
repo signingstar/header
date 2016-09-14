@@ -12,6 +12,8 @@ const presenter = ({cookies={}, topNav = true}, page) => {
   } else {
     page.set({origConfig: []});
   }
+
+  return {isLogged};
 }
 
 export default presenter;
