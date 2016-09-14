@@ -1,1 +1,1 @@
-require('./lib/presenter');
+module.exports = require('./lib/presenter.js');
