@@ -1,1 +1,1 @@
-require('./src/presenter');
+require('./lib/presenter');

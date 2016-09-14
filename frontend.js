@@ -1,1 +1,1 @@
-require('./lib/header');
+require('./lib/frontend/main');
