@@ -9,22 +9,10 @@ var sass = require("node-sass");
 var DEBUG = !process.argv.includes('--release');
 
 var srcPath = path.join(__dirname, "./src");
-var destPath = path.join(__dirname, "./lib");
+var destPath = path.join(__dirname, "./build");
 var nodeModulesPath = path.join(__dirname, "./node_modules");
 
-var nodeModules = {};
-fs.readdirSync('node_modules')
-  .filter(function(x) {
-      return ['.bin'].indexOf(x) === -1;
-  })
-  .forEach(function(mod) {
-      nodeModules[mod] = 'commonjs ' + mod;
-  });
-
-var config = {
-}
-
-var clientConfig = extend({}, true, config, {
+module.exports =  {
   name: 'browser',
   entry: {
       'header.css': srcPath + '/frontend/main.scss',
@@ -82,7 +70,4 @@ var clientConfig = extend({}, true, config, {
   externals: {
     "jquery": "$",
   }
-});
-
-
-module.exports = [clientConfig];
+};
