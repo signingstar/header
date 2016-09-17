@@ -13,25 +13,37 @@ html
       type='text/css'
     )
 
+  //- Section for adding extra stylesheet or other link stuff
   block top-links
 
   body(
-    class= body_class
+    class= body_class //-page specific body class
     )
     .body-contents
+      //- common header for all the pages
       block header
         header
           include ./header
+      //- Page specific content
       block contents
 
+      //- show footer conditionally
       if showFooter
         .c-footer#c-footer
           include ./footer
 
-  block scripts
+    //- Add core js files including layout
+    if corejs
+      script(
+        src='/assets/' + corejs
+      )
 
-  script(
-    src='/assets/' + javascript
-  )
+    //- Any script which has to be externalized e.g. React
+    block scripts
 
-  block bottom-links
+    //- Load page specific script
+    script(
+      src='/assets/' + javascript
+    )
+
+    block bottom-links
