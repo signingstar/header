@@ -1,6 +1,6 @@
 const Config = require("../config/top_nav_config.json");
 
-const presenter = ({cookies={}, topNav = true, scriptFile='corejs'}, page, modules={}) => {
+const presenter = ({cookies={}, topNav = true, scriptFile='core'}, page, modules={}) => {
   const {jsAsset, logger} = modules;
 
   if(!page) {
