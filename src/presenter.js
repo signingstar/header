@@ -15,6 +15,12 @@ const presenter = ({session={}, topNav = true, scriptFile='core'}, page, modules
 
   page.set({isLogged});
 
+  if(isLogged) {
+    let firstName = session.user.first_name;
+    firstName = firstName.split(" ")[0];
+    page.set({firstName});
+  }
+
   if(jsAsset) {
     page.set({corejs: jsAsset(scriptFile)});
   }
