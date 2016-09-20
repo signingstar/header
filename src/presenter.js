@@ -1,6 +1,6 @@
 const Config = require("../config/top_nav_config.json");
 
-const presenter = ({cookies={}, topNav = true, scriptFile='core'}, page, modules={}) => {
+const presenter = ({session={}, topNav = true, scriptFile='core'}, page, modules={}) => {
   const {jsAsset, logger} = modules;
 
   if(!page) {
@@ -11,11 +11,9 @@ const presenter = ({cookies={}, topNav = true, scriptFile='core'}, page, modules
     return;
   }
 
-  const isLogged = cookies['isLogged'];
+  const isLogged = session.user !== undefined;
 
-  if(cookies) {
-    page.set({isLogged});
-  }
+  page.set({isLogged});
 
   if(jsAsset) {
     page.set({corejs: jsAsset(scriptFile)});
