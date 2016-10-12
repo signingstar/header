@@ -1,6 +1,6 @@
 const Config = require("../config/top_nav_config.json")
 
-const presenter = ({session={}, topNav = true, scriptFile='core'}, page, modules={}) => {
+const presenter = ({user, topNav = true, scriptFile='core'}, page, modules={}) => {
   const {jsAsset, logger} = modules
 
   if(!page) {
@@ -11,12 +11,12 @@ const presenter = ({session={}, topNav = true, scriptFile='core'}, page, modules
     return
   }
 
-  const isLogged = session.user !== undefined
+  const isLogged = user !== undefined
 
   page.set({isLogged})
 
   if(isLogged) {
-    let firstName = session.user.first_name
+    let firstName = user.first_name
 
     if(firstName) {
       firstName = firstName.split(" ")[0]
